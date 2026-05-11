@@ -12,7 +12,7 @@ class Email:
 
     value: str
 
-    PATTERN = r"^[a-zA-Z0-9._%+-}+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    PATTERN = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
 
     def __post_init__(self) -> None:
         if not re.match(self.PATTERN, self.value):
@@ -49,6 +49,10 @@ class Password:
 
 
 class UserRole(str, Enum):
+    """
+    Допустимые роли.
+    """
+
     STUDENT = "student"
     MENTOR = "mentor"
     ADMIN = "admin"
