@@ -1,0 +1,1 @@
+# UserEntity (id, email, role)
