@@ -1,6 +1,6 @@
-from dataclasses import dataclass
 import re
-from enum import Enum
+from dataclasses import dataclass
+from enum import StrEnum
 
 
 @dataclass(frozen=True)
@@ -31,10 +31,7 @@ class Password:
 
     @staticmethod
     def validate(raw_password: str) -> None:
-        if (
-            len(raw_password) < Password.MIN_LENGTH
-            or len(raw_password) > Password.MAX_LENGTH
-        ):
+        if len(raw_password) < Password.MIN_LENGTH or len(raw_password) > Password.MAX_LENGTH:
             raise ValueError(
                 f"Пароль должен быть от {Password.MIN_LENGTH} до {Password.MAX_LENGTH} символов."
             )
@@ -48,7 +45,7 @@ class Password:
             raise ValueError("Пароль должен содержать хотя бы один спец. символ.")
 
 
-class UserRole(str, Enum):
+class UserRole(StrEnum):
     """
     Допустимые роли.
     """
