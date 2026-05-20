@@ -16,8 +16,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
 from django.http import HttpResponse
+from django.urls import include, path
 
 urlpatterns = [
     path("", lambda request: HttpResponse("OK")),
