@@ -1,14 +1,32 @@
 [project]
 name = "education-platform"
 version = "0.1.0"
-description = "Add your description here"
+description = "Образовательная онлайн платформа EdSpace"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "django>=6.0.5",
-    "djangorestframework>=3.17.1",
+    "django>=6.0.5",                # нужно на проде и при разработке
+    "djangorestframework>=3.17.1",  # нужно на проде и при разработке
     "pillow>=12.2.0",
-    "psycopg2>=2.9.12",
+    "psycopg2>=2.9.12",             # нужно на проде
     "python-dotenv>=1.2.2",
-    "ruff>=0.15.12",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",                # только для разработки и тестов
+    "ruff>=0.15.12",                # только для форматирования
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
